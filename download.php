@@ -11,25 +11,21 @@
 		die();
 	}
 	
-	if(is_user_logged_in()){
+	if(is_user_logged_in())
 		if($param != -1) {
 			$filename = $prefix . $param . ".pdf";
 			$download_file = $path . $filename;
-			if(!empty($filename)){
+			if(!empty($filename))
 				if(file_exists($download_file)){
 					header('Content-Disposition: attachment; filename=' . $filenames[$param - 1] . ".pdf");
 					header('Content-Type: application/pdf');
 					readfile($download_file); 
 					exit;
-				}else{
+				}else
 					goToHomePage();
-				}
-			}else{
+			else
 				goToHomePage();
-			}
-		}else{
+		}else
 			goToHomePage();
-		}			
-    }else{
+    else
 		goToHomePage();
-    }
